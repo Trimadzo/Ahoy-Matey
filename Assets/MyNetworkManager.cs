@@ -3,23 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class MyHUD : MonoBehaviour
+public class MyNetworkManager : NetworkManager
 {
-
-    private NetworkManager networkManager;
-
-    void Start()
-    {
-        networkManager = GetComponent<NetworkManager>();
-    }
 
     public void MyStartHost()
     {
         Debug.Log("Starting Host at " + Time.timeSinceLevelLoad);
-        networkManager.StartHost();
+        StartHost();
     }
 
-    void OnStartHost()
+    public override void OnStartHost()
     {
         Debug.Log("Host started at " + Time.timeSinceLevelLoad);
     }
